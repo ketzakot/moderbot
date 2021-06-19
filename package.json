@@ -1,0 +1,12 @@
+{
+  "name": "Test Bot By Samu330",
+  "version": "0.0.0",
+  "description": "",
+  "main": "smtest.js",
+  "scripts": {
+  "start": "node smtest.js"
+  },
+  "dependencies": {
+    "@adiwajshing/baileys": "^3.4.1"
+  }
+} 
