@@ -47,6 +47,19 @@ const body = sam.message.conversation || sam.message[type].caption || sam.messag
 chats = (type === 'conversation') ? sam.message.conversation : (type === 'extendedTextMessage') ? sam.message.extendedTextMessage.text : ''
 budy = (type === 'conversation' && sam.message.conversation.startsWith(prefix)) ? sam.message.conversation : (type == 'imageMessage') && sam.message.imageMessage.caption.startsWith(prefix) ? sam.message.imageMessage.caption : (type == 'videoMessage') && sam.message.videoMessage.caption.startsWith(prefix) ? sam.message.videoMessage.caption : (type == 'extendedTextMessage') && sam.message.extendedTextMessage.text.startsWith(prefix) ? sam.message.extendedTextMessage.text : ''
 
+if (prefix != "") {
+if (!body.startsWith(prefix)) {
+cmd = false
+comm = ""
+} else {
+cmd = true
+comm = body.slice(1).trim().split(" ").shift().toLowerCase()
+}
+} else {
+cmd = false
+comm = body.trim().split(" ").shift().toLowerCase()
+}
+        
 const command = comm
 
 const arg = chats.slice(command.length + 2, chats.length)
