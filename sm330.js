@@ -84,7 +84,7 @@ break
                 
 case 'foto':
 const imagen = fs.readFileSync('./media/logo.jpg')                
-client.sendMessage(from, imagen, MessageType.image, {quoted: sam, caption: `*Bien, has enviado una foto con caption!*`, sendEphermal: true, forwardingScore: 999})
+client.sendMessage(from, imagen, MessageType.image, {quoted: sam, caption: `*Bien, has enviado una foto con caption!*`, sendEphemeral: true, forwardingScore: 999})
 break
                 
 case 'video':
@@ -95,7 +95,7 @@ break
 case 'audio':
 const audio = fs.readFileSync('./media/audio.mp3')
 client.sendMessage(from, audio, MessageType.audio, {quoted: sam, duration: -9999999, ptt: true, sendEphermal: true})
-client.sendMessage(from, audio, MessageType.audio, {quoted: sam, duration: -9999999, sendEphermal: true})                
+client.sendMessage(from, audio, MessageType.audio, {quoted: sam, duration: -9999999, sendEphemeral: true})                
 break
                 
 }
