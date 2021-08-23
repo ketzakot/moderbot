@@ -84,7 +84,7 @@ break
                 
 case 'foto':
 const imagen = fs.readFileSync('./media/logo.jpg')
-client.sendMessage(from, imagen, MenssageType.image)
+client.sendMessage(from, imagen, MessageType.image)
 break
                 
 }
