@@ -61,8 +61,7 @@ comm = body.trim().split(" ").shift().toLowerCase()
 }
         
 const command = comm
-const type = Object.keys(sam.message)[0]
-const body = sam.message.conversation || sam.message[type].caption || sam.message[type].text || ""
+
 const arg = chats.slice(command.length + 2, chats.length)
 const args = budy.trim().split(/ +/).slice(1)
 const isCmd = budy.startsWith(prefix)
@@ -79,7 +78,11 @@ const pushname = sam.key.fromMe ? client.user.name : conts.notify || conts.vname
 
 
 if(body.includes('bot')) {
-client.sendMessage(from, 'Hola!', MessageType.text)
+client.sendMessage(from, 'Hola!', MessageType.text, {quoted: sam})
+}
+        
+if(body.includes('hola')) {
+client.sendMessage(from, 'como estas!', MessageType.text, {quoted: sam})
 }
 switch (command) {
 
