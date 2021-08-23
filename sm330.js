@@ -89,7 +89,7 @@ break
                 
 case 'video':
 const video = fs.readFileSync('./media/video.mp4')
-client.sendMessage(from, video, MessageType.video, {quoted: sam, caption: 'JAJAJA', duration: 999999999, mimetype: 'video/gif'})
+client.sendMessage(from, video, MessageType.video, {quoted: sam, caption: 'JAJAJA', duration: 999999999})
 break
                 
 case 'audio':
