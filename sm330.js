@@ -87,7 +87,13 @@ client.sendMessage(from, 'como estas!', MessageType.text, {quoted: sam})
 switch (command) {
 
 case 'bot':
-client.sendMessage(from, 'Hola, felicidades, has logrado enviar un mensaje mediante un servidor externo😚', text, {quoted : sam})
+client.sendMessage(from, 'Hola, felicidades, has logrado enviar un mensaje mediante un servidor externo😚', text, {quoted: { key: {
+fromMe: false,
+participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {})
+},
+message: {
+"documentMessage": { "title": "Samu330🍒", 'jpegThumbnail': fs.readFileSync('./media/logo.jpeg')}}
+}})
 break
                 
 case 'foto':
