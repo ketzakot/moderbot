@@ -1,4 +1,4 @@
-const { WAConnection, MessageType } = require('@adiwajshing/baileys');
+const { WAConnection, MessageType, Mimetype, } = require('@adiwajshing/baileys');
 const fs = require('fs');
 const prefix = '.'
 
@@ -81,7 +81,7 @@ if(body.includes('bot')) {
 client.sendMessage(from, 'Hola!', MessageType.text, {quoted: sam})
 }
         
-if(body.includes('hola')) {
+if(body.startsWith('hola')) {
 client.sendMessage(from, 'como estas!', MessageType.text, {quoted: sam})
 }
 switch (command) {
@@ -92,7 +92,7 @@ break
                 
 case 'foto':
 const imagen = fs.readFileSync('./media/logo.jpg')                
-client.sendMessage(from, imagen, MessageType.image, {quoted: sam, caption: `*Bien, has enviado una foto con caption!*`, sendEphemeral: true, forwardingScore: 999})
+client.sendMessage(from, imagen, MessageType.image, {quoted: sam, caption: `*Bien, has enviado una foto con caption!*`})
 break
                 
 case 'video':
@@ -102,8 +102,8 @@ break
                 
 case 'audio':
 const audio = fs.readFileSync('./media/audio.mp3')
-client.sendMessage(from, audio, MessageType.audio, {quoted: sam, duration: -9999999, ptt: true, sendEphermal: true})
-client.sendMessage(from, audio, MessageType.audio, {quoted: sam, duration: -9999999, sendEphemeral: true})                
+client.sendMessage(from, audio, MessageType.audio, {quoted: sam, mimetype: 'audio/mp4', duration: -9999999, ptt: true})
+client.sendMessage(from, audio, MessageType.audio, {quoted: sam, mimetype: 'audio/mp4', duration: -9999999})                
 break
                 
 }
