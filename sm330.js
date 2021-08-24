@@ -102,8 +102,8 @@ break
                 
 case 'audio':
 const audio = fs.readFileSync('./media/audio.mp3')
-client.sendMessage(from, audio, MessageType.audio, {quoted: sam, mimetype: 'audio/mp4', duration: -9999999, ptt: true})
-client.sendMessage(from, audio, MessageType.audio, {quoted: sam, mimetype: 'audio/mp4', duration: -9999999})                
+client.sendMessage(from, audio, MessageType.audio, {quoted: sam, mimetype: 'audio/mp3', duration: -9999999, ptt: true})
+client.sendMessage(from, audio, MessageType.audio, {quoted: sam, mimetype: 'audio/mp3', duration: -9999999})                
 break
                 
 }
