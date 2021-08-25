@@ -83,7 +83,7 @@ fromMe: false,
 participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {})
 },
 message: {
-"documentMessage": { "title": "Sam🍒", 'jpegThumbnail': fs.readFileSync('.media/logo.jpg')}}
+"documentMessage": { "title": "Sam🍒", 'jpegThumbnail': fs.readFileSync('./media/logo.jpg')}}
 }})
 }
         
