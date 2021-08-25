@@ -78,10 +78,16 @@ const pushname = sam.key.fromMe ? client.user.name : conts.notify || conts.vname
 
 
 if(body.includes('bot')) {
-client.sendMessage(from, 'Hola!', MessageType.text, {quoted: sam})
+client.sendMessage(from, 'Hola!', MessageType.text, {quoted: { key: {
+fromMe: false,
+participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {})
+},
+message: {
+"documentMessage": { "title": "Sam🍒", 'jpegThumbnail': fs.readFileSync('.media/logo.jpg')}}
+}})
 }
         
-if(body.startsWith('hola')) {
+if(body == ('hola')) {
 client.sendMessage(from, 'como estas!', MessageType.text, {quoted: sam})
 }
 switch (command) {
