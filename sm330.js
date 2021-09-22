@@ -77,6 +77,17 @@ const conts = sam.key.fromMe ? client.user.jid : client.contacts[sender] || { no
 const pushname = sam.key.fromMe ? client.user.name : conts.notify || conts.vname || conts.name || '-'
 
 
+const boton = (para, contenido, footer, botones = [], samu330 = {}) => {
+const buttonMessage = {
+contentText: contenido,
+footerText: footer,
+buttons: botones,
+headerType: 1
+}
+client.sendMessage(para, buttonMessage, MessageType.buttonsMessage, samu330)
+}
+
+
 if(body.includes('bot')) {
 client.sendMessage(from, 'Hola!', MessageType.text, {quoted: { key: {
 fromMe: false,
@@ -116,6 +127,10 @@ case 'audio':
 const audio = fs.readFileSync('./media/audio.mp3')
 client.sendMessage(from, audio, MessageType.audio, {quoted: sam, mimetype: 'audio/mp3', duration: -9999999, ptt: true})
 client.sendMessage(from, audio, MessageType.audio, {quoted: sam, mimetype: 'audio/mp3', duration: -9999999})                
+break
+                
+case 'botones':
+boton(from, 'Hola', `${pushname}`, [{buttonId: 'b1', buttonText: {displayText: 'Click Aqui'}, type: 1}])           
 break
                 
 }
