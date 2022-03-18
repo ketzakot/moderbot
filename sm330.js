@@ -165,6 +165,10 @@ let lista = client.prepareMessageFromContent(from,{
 }, {quoted: sam})
 client.relayWAMessage(lista)          
 break
+                case 'doc':
+const document = fs.readFileSync('./modder/ballons/Ballons.zip')
+client.sendMessage(from, document, MessageType.document)
+break
                 
 }
 
